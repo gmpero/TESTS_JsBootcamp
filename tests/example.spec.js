@@ -11,4 +11,9 @@ test.describe("Verifycation elements on Home Page", () => {
 		// Expect a header
 		await expect(page.locator("#jenkins-head-icon")).toBeVisible();
 	});
+
+	test("page header 1", async ({ page }) => {
+		// Expect a header
+		await expect(page.locator("#jenkins-head-icon")).toBeVisible();
+	});
 });
