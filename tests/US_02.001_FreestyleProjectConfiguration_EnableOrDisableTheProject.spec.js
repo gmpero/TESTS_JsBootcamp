@@ -63,4 +63,16 @@ test.describe("US_02.001 | Freestyle Project Configuration > Enable or Disable t
 
         await expect(labelToggle).toContainText(TestData.configuration.toggle.labels.disabled);
     });
+
+    test("TC_02.001.07 | Verify toggle switch label changes to Enabled after double click", async ({ page }) => {
+        await page.getByRole('link', { name: `${TestData.project.displayName}`, exact: true }).focus();
+        await page.keyboard.press('Enter');
+        await page.waitForURL(`/job/${TestData.project.displayName}/`)
+        await page.getByRole("link", {name: `${TestData.dropdown.items[3]}`}).click();
+
+        await page.locator(".jenkins-toggle-switch").dblclick();
+        const labelToggle = page.locator(".jenkins-toggle-switch__label");
+
+        await expect(labelToggle).toContainText(TestData.configuration.toggle.labels.enabled);
+    });
 });
