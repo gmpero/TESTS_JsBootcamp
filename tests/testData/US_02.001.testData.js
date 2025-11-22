@@ -1,20 +1,53 @@
-// US_02.001.testData.js
-export const ProjectData = {
-    freestyleProject: {
+export const TestData = {
+    project: {
         name: "test-freestyle",
-        description: "Test freestyle project for US_02.001"
-    }
-};
+        displayName: "TestFreestyleProject"
+    },
+    
+    dropdown: {
+        expectedCount: 7,
+        items: [
+            "Changes", 
+            "Workspace", 
+            "Build Now", 
+            "Configure", 
+            "Delete Project", 
+            "Rename", 
+            "Credentials"
+        ]
+    },
+    
+    configuration: {
+        toggle: {
+            states: {
+                on: "ON",
+                off: "OFF"
+            },
+            labels: {
+                enabled: "Enabled",
+                disabled: "Disabled"
+            },
+            tooltips: {
+                enable: "Enable the project",
+                disable: "Disable the project"
+            }
+        },
+        buttons: {
+            save: "Save",
+            apply: "Apply"
+        }
+    },
+    
+    status: {
+        enabled: "Project is enabled",
+        disabled: "This project is currently disabled"
+    },
 
-export const DropdownData = {
-    expectedItemCount: 7,
-    menuItems: [
-        "Changes", 
-        "Workspace", 
-        "Build Now", 
-        "Configure", 
-        "Delete Project", 
-        "Rename", 
-        "Credentials"
-    ]
+    get ItemsOnDropdown() {
+        return {
+            name: this.project.name,
+            expectedCount: this.dropdown.expectedCount,
+            listItemMenu: this.dropdown.items
+        };
+    }
 };
